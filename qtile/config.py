@@ -511,4 +511,4 @@ wl_input_rules = None
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
 
-subprocess.call("/home/alpha/.config/qtile/autostart.sh")
+subprocess.call(home + ".config/qtile/autostart.sh")
