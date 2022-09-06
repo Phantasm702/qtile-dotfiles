@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 picom --experimental-backends --backend glx &    # Compositor
 wal -R &    # Pywal
