@@ -9,17 +9,20 @@ now=$(date +%m-%d_%H-%M-%S) # DOTFILES SPECIFC
 
 
 satisfied=0
+
+echo "Checking if dependencies are installed"
 for depend in "${depends[@]}"; do
     if ! (command -v "$depend" &> /dev/null); then
-        echo "$depend not installed"
+        echo "$depend Not Installed"
     else
+	    echo "$depend Installed"
         satisfied=$((satisfied + 1))
     fi
 done
 
 
 if [ $satisfied == ${#depends[@]} ]; then
-    echo "Dependencies satisfied... starting installation"
+    echo -e "Dependencies satisfied... starting installation\n"
 else
     echo "Dependencies not satisfied, install them and rerun the script"
     exit 1
@@ -38,9 +41,9 @@ echo "Copying files to $HOME/$cfg_dir"
 mkdir "$HOME/$cfg_dir"
 cp -r ./* "$HOME/$cfg_dir"
 
-echo "Setting permissions"
+echo -e "Setting permissions\n"
 cd "$HOME/$cfg_dir" || echo "cd failed"
-pwd
+#pwd
 chmod -R +x ./*
 
 echo "Done, enjoy my rice :)"
