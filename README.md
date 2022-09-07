@@ -3,7 +3,7 @@ This is a repository containing my qtile dotfiles
 
 
 ### Installation
-First install these dependencies: `curl, brightnessctl, git, qtile`\
+First install these dependencies: `curl, brightnessctl, git, qtile, picom`\
 Then run this command in a terminal:\
 `curl https://raw.githubusercontent.com/Phantasm702/qtile-dotfiles/main/install.sh | bash`
 
