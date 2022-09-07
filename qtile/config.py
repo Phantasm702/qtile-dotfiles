@@ -245,7 +245,7 @@ screens = [
                     update_interval=1,
                     background=dark,
                     foreground=light,
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + ".config/qtile/scripts/updater.sh", shell=True)},
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn('alacritty -e $(echo "sudo pacman -Syu")', shell=True)},
                 ),
                 widget.TextBox(
                     text=toright,
