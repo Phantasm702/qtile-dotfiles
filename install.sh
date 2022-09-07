@@ -61,4 +61,10 @@ cp -r ./* "$HOME/$picom_cfg_dir"
 
 echo ""
 
+echo "Cleaning up"
+cd
+rm -rf "$root_dir"
+
+echo ""
+
 echo "Done, enjoy my rice :)"
