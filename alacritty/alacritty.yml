@@ -1,0 +1,8 @@
+window:
+  opacity: 0.6
+  padding:
+    x: 15
+    y: 15
+  dynamic padding: false
+
+
