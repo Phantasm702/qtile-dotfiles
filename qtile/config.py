@@ -245,7 +245,7 @@ screens = [
                     update_interval=1,
                     background=dark,
                     foreground=light,
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("%s -e $(echo 'sudo pacman -Syu')" % terminal % terminal, shell=True)},
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("%s -e sudo pacman -Syu" % terminal, shell=True)},
                 ),
                 widget.TextBox(
                     text=toright,
