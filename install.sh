@@ -6,7 +6,7 @@ root_dir="$(pwd)/$folder_name"
 depends=("qtile" "git" "brightnessctl" "picom")
 
 qtile_cfg_dir=".config/qtile" # DOTFILES SPECIFC
-picom_cfg_dir=".config/qtile"
+picom_cfg_dir=".config/picom"
 now=$(date +%m-%d_%H-%M-%S) # DOTFILES SPECIFC
 
 
@@ -58,5 +58,7 @@ echo "Copying picom config to $HOME/$picom_cfg_dir"
 cd "$root_dir/picom"
 mkdir "$HOME/$picom_cfg_dir"
 cp -r ./* "$HOME/$picom_cfg_dir"
+
+echo ""
 
 echo "Done, enjoy my rice :)"
