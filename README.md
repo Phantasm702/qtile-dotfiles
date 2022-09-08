@@ -13,4 +13,4 @@ It is good practice to inspect downloaded scripts before executing them. To do s
 *Inspect Script*\
 `bash install.sh`
 
-![qtile_rice.png](https://github.com/Phantasm702/qtile-dotfiles/blob/db36806bf42261b3f5dd5884c5992166791439f4/qtile_rice.png)
+![qtile_rice.png](https://github.com/Phantasm702/qtile-dotfiles/blob/main/qtile_rice.png)
