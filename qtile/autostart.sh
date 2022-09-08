@@ -22,6 +22,6 @@ done
 
 ## COMMANDS THAT CAN HAVE MULTIPLE INSTANCES/COMMANDS THAT CANT BE PGREPPED
 wal -i background.jpg &
-nitrogen --set-auto background.jpg &    # Wallpaper setter
 export LC_ALL=en_US.UTF-8
-amixer -q sset Master 10% &
+amixer -q sset Master 22% &
+nitrogen --restore    # Wallpaper setter
