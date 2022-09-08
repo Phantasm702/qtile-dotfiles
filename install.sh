@@ -83,6 +83,7 @@ echo ""
 
 echo "Setting wallpaper"
 nitrogen --set-auto "${bg_dir}" &> /dev/null
+echo ""
 
 
 echo "Cleaning up"
