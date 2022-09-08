@@ -3,12 +3,13 @@
 git_url="https://github.com/Phantasm702/qtile-dotfiles.git"
 folder_name="qtile-dotfiles"
 root_dir="$(pwd)/$folder_name"
-depends=("qtile" "git" "brightnessctl")
+depends=("qtile" "git" "brightnessctl" "nitrogen")
 opt_depends=("alacritty" "picom" "wal")
 
 alacritty_cfg_dir=".config/alacritty" # DOTFILES SPECIFC
 qtile_cfg_dir=".config/qtile" # DOTFILES SPECIFC
 picom_cfg_dir=".config/picom" # DOTFILES SPECIFC
+bg_dir="$(pwd)/$folder_name/qtile/background.jpg"
 now=$(date +%d-%m_%H-%M-%S) # DOTFILES SPECIFC
 
 
@@ -46,6 +47,7 @@ echo ""
 ## DOTFILES SPECIFIC
 cd "${root_dir}" || (echo "git did not clone into ${root_dir}, correct \$folder_name variable and rerun" exit 1)
 
+
 echo "Backing up current qtile config as ${HOME}/${qtile_cfg_dir}_bak_${now}"
 mv "${HOME}/${qtile_cfg_dir}" "${HOME}/${qtile_cfg_dir}_bak_${now}" 
 
@@ -58,6 +60,7 @@ echo -e "Setting permissions\n"
 cd "${HOME}/${qtile_cfg_dir}" || (echo "cd failed, ${HOME}/${qtile_cfg_dir} does not exist." && exit 1)
 chmod -R +x ./*
 
+
 echo "Backing up current picom config as ${HOME}/${picom_cfg_dir}_bak_${now}"
 mv "${HOME}/${picom_cfg_dir}" "${HOME}/${picom_cfg_dir}_bak_${now}"
 
@@ -67,6 +70,7 @@ mkdir "${HOME}/${picom_cfg_dir}"
 cp -r ./* "${HOME}/${picom_cfg_dir}"
 echo ""
 
+
 echo "Backing up current alacritty config as ${HOME}/${alacritty_cfg_dir}_bak_${now}"
 mv "${HOME}/${alacritty_cfg_dir}" "${HOME}/${alacritty_cfg_dir}_bak_${now}"
 
@@ -75,6 +79,10 @@ cd "${root_dir}/alacritty" || echo "${root_dir}/alacritty doesnt exist"
 mkdir "${HOME}/${alacritty_cfg_dir}"
 cp -r ./* "${HOME}/${alacritty_cfg_dir}"
 echo ""
+
+
+echo "Setting wallpaper"
+nitrogen --set-auto "${bg_dir}" &> /dev/null
 
 
 echo "Cleaning up"
