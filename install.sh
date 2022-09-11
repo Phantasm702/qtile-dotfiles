@@ -5,6 +5,7 @@ folder_name="qtile-dotfiles"
 root_dir="$(pwd)/$folder_name"
 depends=("qtile" "git" "brightnessctl" "nitrogen")
 opt_depends=("alacritty" "picom" "wal")
+fonts=("Ubuntu Mono Nerd Font")
 
 alacritty_cfg_dir=".config/alacritty" # DOTFILES SPECIFC
 qtile_cfg_dir=".config/qtile" # DOTFILES SPECIFC
@@ -32,6 +33,11 @@ for depend in "${opt_depends[@]}"; do
 done
 echo ""
 
+for font in $fonts; do
+    if ! (fc-list | grep "${font}"); then
+        echo "WARNING: font isnt installed, icons and text may not look right"
+    fi
+done
 
 if ! ${satisfied}; then
     echo -e "Dependencies not satisfied, install them and rerun the script"
