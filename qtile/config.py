@@ -97,6 +97,7 @@ keys = [
     Key([mod], "z", lazy.group["6"].toscreen(), desc="Switch to zoom group"),
     Key(["control"], "p", lazy.spawn("playerctl -a play-pause")),
     Key([mod1], "space", lazy.hide_show_bar("bottom"), desc="Show/Hide the bar"),
+    Key([mod1], "l", lazy.spawn("lightlocker -l"), desc="lock screen")
 ]
 
 
