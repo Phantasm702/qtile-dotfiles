@@ -5,7 +5,7 @@
 # this is mainly because flatpak apps dont create processes named after the command, for example com.brave.Browser 
 # can only be pgrepped with "Brave", and I dont want multiple instances of it running.
 
-cmds=("picom#picom --experimental-backends --backend glx" "optimus-manager-qt#optimus-manager-qt" "update_checker.py#${HOME}/.config/qtile/scripts/update_checker.py" "firefox#firefox" "brave#com.brave.Browser" "zoom#zoom" "alacritty#alacritty")
+cmds=("light-locker#light-locker --lock-on-suspend --lock-on-lid" "picom#picom --experimental-backends --backend glx" "optimus-manager-qt#optimus-manager-qt" "update_checker.py#${HOME}/.config/qtile/scripts/update_checker.py" "firefox#firefox" "brave#com.brave.Browser" "zoom#zoom" "alacritty#alacritty")
 
 for cmd in "${cmds[@]}";
 
