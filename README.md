@@ -3,7 +3,9 @@ This is a repository containing my qtile dotfiles
 
 
 ### Installation
-First install these dependencies: `curl, brightnessctl, git, qtile, picom, nitrogen, Ubuntu Mono Nerd Font`\
+First install these dependencies: `curl, brightnessctl, git, qtile, picom, nitrogen, alsa-utils`\
+Install the `Ubuntu Mono Nerd Font`\
+Note: The names of the dependiencies listed above are according to the ARCH LINUX repos\
 Then run this command in a terminal:\
 `curl https://raw.githubusercontent.com/Phantasm702/qtile-dotfiles/main/install.sh | bash`
 
