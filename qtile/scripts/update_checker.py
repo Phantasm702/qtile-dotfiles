@@ -20,7 +20,7 @@ from time import sleep
 
 
 
-update_icon = "\ufbae"
+update_icon = "󰚰"
 check_updates_cmd = "checkupdates | wc -l"
 
 

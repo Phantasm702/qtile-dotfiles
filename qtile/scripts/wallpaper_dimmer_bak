@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while :
+do
+	win_name=$(xdotool getwindowfocus getwindowname > /dev/null 2>&1)
+
+	if [ $? -ne 0 ]; then
+		nitrogen --set-auto ${HOME}/.config/qtile/background.jpg
+	else
+		nitrogen --set-auto ${HOME}/.config/qtile/background_dim.jpg
+	fi
+done

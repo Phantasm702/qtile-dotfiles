@@ -32,19 +32,30 @@ home = os.path.expanduser("~/.config/qtile/scripts/")
 
 bt_info_cmd = "bluetoothctl show"
 bt_connected_cmd = "bluetoothctl devices Connected"
+bt_audio_check_cmd = "bluetoothctl info"
 
 bt_on = "\uf294"
 bt_off = "\uf5b1"
+bt_audio_icon = "󰂰"
+bt_connected = "󰂱"
 
 
 def get_bt_info():
     
     bt_info = subprocess.check_output(bt_info_cmd, shell=True).decode()
     bt_connected = subprocess.check_output(bt_connected_cmd, shell=True).decode().split()
-        
+    try:
+        bt_audio = subprocess.check_output(bt_audio_check_cmd, shell=True).decode()
+    except:
+        bt_audio = ""
+
     if "Powered: yes" in bt_info:
         if len(bt_connected) != 0:
-            print(bt_on + " " + str(bt_connected[2:]).replace("[", "").replace("'", "").replace(",", "").replace("]", ""))
+            if "audio" in bt_audio:
+                print(bt_audio_icon)
+            else:
+                print(bt_connected)
+#            print(bt_on + " " + str(bt_connected[2:]).replace("[", "").replace("'", "").replace(",", "").replace("]", ""))
         else:
             print(bt_on)
     else:
@@ -120,6 +131,21 @@ def get_bat_info():
     if "state:               charging" in bat_info:
         current_icon = bat_icons[10]
     print(current_icon + " " + bat_percentage)
+
+
+
+###################
+##### HEADSET #####
+###################
+cmd = "pactl info"
+not_conn_str = "Default Sink: alsa_output.pci-0000_00_1b.0.analog-stereo"
+
+def get_headset():
+    op = subprocess.check_output(cmd, shell=True).decode()
+    if not_conn_str in op:
+        print("")
+    else:
+        print("󰋋")
 
 
 
@@ -216,6 +242,9 @@ elif args[0] == "eth" or args[0] == "ethernet":
 elif args[0] == "bat" or args[0] == "battery":
 #    print("Getting battery...")
     get_bat_info()
+
+elif args[0] == "audio":
+    get_headset()
 
 elif args[0] == "lclick":
     if args[1] == "wifi":

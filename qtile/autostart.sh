@@ -5,7 +5,7 @@
 # this is mainly because flatpak apps dont create processes named after the command, for example com.brave.Browser 
 # can only be pgrepped with "Brave", and I dont want multiple instances of it running.
 
-cmds=("light-locker#light-locker --lock-on-suspend --lock-on-lid" "picom#picom --experimental-backends --backend glx" "optimus-manager-qt#optimus-manager-qt" "update_checker.py#${HOME}/.config/qtile/scripts/update_checker.py" "firefox#firefox" "brave#com.brave.Browser" "zoom#zoom" "alacritty#alacritty")
+cmds=("light-locker#light-locker --lock-on-suspend --lock-on-lid" "picom#picom" "optimus-manager-qt#optimus-manager-qt" "update_checker.py#${HOME}/.config/qtile/scripts/update_checker.py" "firefox#firefox""alacritty#alacritty" "wallpaper_dimmer#${HOME}/.config/qtile/scripts/wallpaper_dimmer" "mpris-proxy#mpris-proxy")
 
 for cmd in "${cmds[@]}";
 
@@ -23,5 +23,4 @@ done
 ## COMMANDS THAT CAN HAVE MULTIPLE INSTANCES/COMMANDS THAT CANT BE PGREPPED
 wal -i background.jpg &
 export LC_ALL=en_US.UTF-8
-amixer -q sset Master 22% &
-nitrogen --restore    # Wallpaper setter
+nitrogen --set-auto ${HOME}/.config/qtile/background.jpg    # Wallpaper setter

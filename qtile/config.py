@@ -126,7 +126,7 @@ mouse = [
 
 
 
-icons = ["", "", "", "ﱘ", "", "辶"]
+icons = ["", "", "", "󰝚", "󰍩", " "]
 
 groups = [
         Group("1", label=icons[0], matches=[Match(wm_class=["Alacritty"])], layout="Columns"),
@@ -169,12 +169,12 @@ for i in groups:
 ####################--LAYOUTS--####################
 ####################################################
 
-dark = "#141821" #"#14101D"
-light = "#AD8998"
+dark = "#515962" #"#14101D"
+light = "#5C8393"
 
 layouts = [
-    layout.Columns(border_focus_stack=["#0A121C", "46847C"], border_focus=light, border_normal=dark, border_width=3, margin=10),
-    layout.Max(margin=5),
+    layout.Columns(border_focus_stack=["#0A121C", "46847C"], border_focus=light, border_normal=dark, border_width=3, margin=5),
+    layout.Max(margin=5, ) # border_focus=light, borer_normal=dark, border_width=3),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -198,30 +198,30 @@ layouts = [
 
 
 widget_defaults = dict(
-    font="Ubuntu Mono Nerd Font",
+    font="UbuntuMono Nerd Font",
     fontsize=14,
     padding=3,
 )
 
 # icons
-volume = "墳"
+volume = "󰕾"
 brightness = ""
 cpu = ""
-time = ""
+time = ""
 calendar = ""
 power = ""
-update = "ﮮ"
+update = "󰚰"
 
 # colours
-dark = "#141821" #"#14101D"
-light = "#AD8998"
-darker_light = "#305A53"
-greyed_out = "#38534E"
+dark = "#151515" #"#14101D"
+light = "#5F868F"
+darker_light = "#E85B92"
+greyed_out = "#515962"
 transparent = "#00000000"
-vibrant_selected = "162941" #1E3655"
+vibrant_selected = "#2E2E2E" #1E3655"
 
 # fontsize
-fs = 17 # 17
+fs = 20 # 17
 
 toleft = "\ue0b2" #""
 toright = "\ue0b0" #""
@@ -289,7 +289,7 @@ screens = [
                     foreground=dark,
                     max_chars=40,
                     width=bar.CALCULATED, #295, adjust total width of left section to be same as total width of right section
-                    empty_group_string="Against the winds",
+                    empty_group_string="Spiderverse",
                     scroll=True,
                 ),
                 widget.TextBox(
@@ -310,7 +310,7 @@ screens = [
 #                    fontshadow=None
 #                ),
                 widget.Prompt(
-                    foreground=light,
+                    foreground=dark,
                     background=transparent,
                     ignore_dups_history=True,
                     scroll=True,
@@ -392,27 +392,33 @@ screens = [
                     fontshadow=None
                 ),
                 widget.GenPollText(
-                    func= lambda: subprocess.check_output("/home/alpha/.config/qtile/scripts/script.py eth", shell=True).decode("utf-8").strip(),
+                    func= lambda: subprocess.check_output(home + ".config/qtile/scripts/script.py eth", shell=True).decode("utf-8").strip(),
                     update_interval=1,
                     background=light,
                     foreground=dark,
                 ),
                 widget.GenPollText(
-                    func= lambda: subprocess.check_output("/home/alpha/.config/qtile/scripts/script.py wifi", shell=True).decode("utf-8").strip(),
+                    func= lambda: subprocess.check_output(home + ".config/qtile/scripts/script.py wifi", shell=True).decode("utf-8").strip(),
                     update_interval=1,
                     background=light,
                     foreground=dark,
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("/home/alpha/.config/qtile/scripts/script.py lclick wifi")}
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + ".config/qtile/scripts/script.py lclick wifi")}
                 ),
                 widget.GenPollText(
-                    func= lambda: subprocess.check_output("/home/alpha/.config/qtile/scripts/script.py bt", shell=True).decode("utf-8").strip(),
+                    func= lambda: subprocess.check_output(home + ".config/qtile/scripts/script.py bt", shell=True).decode("utf-8").strip(),
                     update_interval=1,
                     background=light,
                     foreground=dark,
                     mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn("/home/alpha/.config/qtile/scripts/script.py lclick bt"),
-                        "Button3": lambda: qtile.cmd_spawn("/home/alpha/.config/qtile/scripts/script.py rclick bt")
+                        "Button1": lambda: qtile.cmd_spawn(home + ".config/qtile/scripts/script.py lclick bt"),
+                        "Button3": lambda: qtile.cmd_spawn(home + ".config/qtile/scripts/script.py rclick bt")
                     }
+                ),
+                widget.GenPollText(
+                    func= lambda: subprocess.check_output(home + ".config/qtile/scripts/script.py audio", shell=True).decode("utf-8").strip(),
+                    update_interval=1,
+                    background=light,
+                    foreground=dark,
                 ),
                 widget.TextBox(
                     foreground=dark,
@@ -420,7 +426,7 @@ screens = [
                     text="|",
                 ),
                 widget.GenPollText(
-                    func= lambda: subprocess.check_output("/home/alpha/.config/qtile/scripts/script.py bat", shell=True).decode("utf-8").strip(),
+                    func= lambda: subprocess.check_output(home + ".config/qtile/scripts/script.py bat", shell=True).decode("utf-8").strip(),
                     update_interval=1,
                     background=light,
                     foreground=dark,
@@ -435,7 +441,7 @@ screens = [
                     fontshadow=None
                 ),
                 widget.QuickExit(
-                    default_text=" " + power,
+                    default_text=" " + power + " ",
                     background=dark,
                     foreground=light,
                     countdown_format='[{}]',
